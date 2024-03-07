@@ -1,5 +1,5 @@
 package br.com.usecase;
 
-public interface TaxNumverUseCase {
+public interface TaxNumberAvaliableUseCase {
     Boolean TaxNumberAvaliable(String taxNumber);
 }

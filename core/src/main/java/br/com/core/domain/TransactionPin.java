@@ -3,7 +3,6 @@ package br.com.core.domain;
 import br.com.core.exception.TransactionPinException;
 import br.com.core.exception.enums.ErrorCodeEnum;
 
-import java.time.LocalDate;
 import java.time.LocalDateTime;
 
 public class TransactionPin {
@@ -25,15 +24,15 @@ public class TransactionPin {
         this.updatedAt = updatedAt;
     }
 
-    public TransactionPin(String user, String pin, Integer attempt, Boolean blocked) {
+    public TransactionPin(String user, String pin) throws TransactionPinException {
         this.user = user;
-        this.pin = pin;
-        this.attempt = attempt;
-        this.blocked = blocked;
+        setPin(pin);
+        this.attempt = 3;
+        this.blocked = false;
         this.createdAt = LocalDateTime.now();
     }
 
-    public TransactionPin() {
+    public TransactionPin(User userSaved, String pin) {
 
     }
 
